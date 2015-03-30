@@ -1,0 +1,140 @@
+﻿    <!-- Begin follow-on rules -->
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22"><font face="Verdana" size="2">18a. When situation is true:<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Unselected true follow-on:<br>
+		<br>
+		</font></td>
+      <td width="510" colspan="8">
+      <select size="5" name="on_success_id_unselected" style='width:487px; font-family:Verdana; font-size:10pt;' multiple="multiple">
+				<% strOnSuccessId = "," & strOnSuccessId & "," %>
+				<% strOnSuccessId = Replace(strOnSuccessId, " ", "") %>
+				<% Dim strSelectOnSuccessID %>
+				<% Dim strSelectOnSuccessDesc %>
+				<% intLoopCount = 0 %>
+                <% While (adoRS18a.EOF = False) And (intLoopCount < 800)  %> 
+                   	<% If InStr(1, strOnSuccessId, "," & adoRS18a.Fields("rate_rule_id").Value & ",") > 0 Then %>
+	                	<% strSelectOnSuccessID = strSelectOnSuccessID & adoRS18a.Fields("rate_rule_id").Value & "," %>
+	                	<% strSelectOnSuccessDesc = strSelectOnSuccessDesc & adoRS18a.Fields("alert_desc").Value & "," %>
+	                <% Else %>
+		               <% If adoRS18a.Fields("rule_status").Value = "E" Then %>
+		                	<option value="<%=adoRS18a.Fields("rate_rule_id").Value %>"><%=adoRS18a.Fields("alert_desc").Value %></option>
+		                <% End If %> 
+					<% End If %>                
+                <%	adoRS18a.MoveNext
+                    intLoopCount = intLoopCount + 1
+				   Wend
+				%>
+
+				<%					   
+				   Set adoRS18a = Nothing
+				%>
+      </select></td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22">&nbsp;</td>
+      <td width="510" height="22" colspan="8" class="style8"><font color="#080000">
+                      <img border="0" src="images/down_button.GIF" width="24" height="22"  onclick="moveDualList( document.create_alert.on_success_id_unselected, document.create_alert.on_success_id_selected, false );return false" alt="Select true follow-on rule" class="style10" >
+                      <img border="0" src="images/up_button.GIF"   width="24" height="22"  onclick="moveDualList( document.create_alert.on_success_id_selected, document.create_alert.on_success_id_unselected, false );return false" alt="Un-select true follow-on rule" class="style10" ></font></td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22"><font face="Verdana" size="2" color="#080000">&nbsp; 
+		&nbsp; Selected true follow-on:</font></td>
+      <td width="510" height="22" colspan="8"><font color="#080000">
+      <select size="5" name="on_success_id_selected" style='width:487px; font-family:Verdana; font-size:10pt;' multiple="multiple">
+		<% Dim strOnSuccessIDs   %>
+		<% Dim strOnSuccessDescs %>
+		<% strOnSuccessIDs = Split(strSelectOnSuccessID, ",")%>
+		<% strOnSuccessDescs = Split(strSelectOnSuccessDesc, ",")%>
+	    <% For intLoopCount = LBound(strOnSuccessIDs) To UBound(strOnSuccessIDs)  %> 
+	    	<% If IsNumeric(strOnSuccessIDs(intLoopCount)) Then %>
+	    	<option value="<%=strOnSuccessIDs(intLoopCount) %>"><%=strOnSuccessDescs(intLoopCount) %></option>
+	    	<% End If %>
+		<% Next %>       
+      </select></font></td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22">&nbsp;</td>
+      <td width="510" height="22" colspan="8">
+		&nbsp;</td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22"><font face="Verdana" size="2" color="#080000">
+		18b. When situation is false:<br>
+		<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;Unselected false follow-on:<br>
+		<br>
+		</font></td>
+      <td width="510" height="22" colspan="8">
+		<select name="on_failure_id_unselected" style="width:487px; font-family:Verdana; font-size:10pt;" size="5" multiple="multiple">
+				<% strOnFailureId = "," & strOnFailureId & "," %>
+				<% strOnFailureId = Replace(strOnFailureId, " ", "") %>
+				<% Dim strSelectOnFailureID %>
+				<% Dim strSelectOnFailureDesc %>
+				<% intLoopCount = 0 %>
+                <% While (adoRS18b.EOF = False) And (intLoopCount < 800)  %> 
+                   	<% If InStr(1, strOnFailureId, "," & adoRS18b.Fields("rate_rule_id").Value & ",") > 0 Then %>
+	                	<% strSelectOnFailureID = strSelectOnFailureID & adoRS18b.Fields("rate_rule_id").Value & "," %>
+	                	<% strSelectOnFailureDesc = strSelectOnFailureDesc & adoRS18b.Fields("alert_desc").Value & "," %>
+	                <% Else %>
+		               <% If adoRS18b.Fields("rule_status").Value = "E" Then %>
+		                	<option value="<%=adoRS18b.Fields("rate_rule_id").Value %>"><%=adoRS18b.Fields("alert_desc").Value %></option>
+		                <% End If %> 
+					<% End If %>                
+                <%	adoRS18b.MoveNext
+                    intLoopCount = intLoopCount + 1
+				   Wend
+				%>
+
+				<%					   
+				   Set adoRS18b = Nothing
+				%>
+				</select></td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22">&nbsp;</td>
+      <td width="510" height="22" colspan="8" class="style8"><font color="#080000">
+                      <img border="0" src="images/down_button.GIF" width="24" height="22"  onclick="moveDualList( document.create_alert.on_failure_id_unselected, document.create_alert.on_failure_id_selected, false );return false" alt="Select true follow-on rule" >
+                      <img border="0" src="images/up_button.GIF"   width="24" height="22"  onclick="moveDualList( document.create_alert.on_failure_id_selected, document.create_alert.on_failure_id_unselected, false );return false" alt="Un-select true follow-on rule" class="style10" ></font></td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="8" height="22">&nbsp;</td>
+      <td width="217" height="22">&nbsp;</td>
+      <td width="210" height="22"><font face="Verdana" size="2" color="#080000">
+		&nbsp; &nbsp; Selected false follow-on:</font></td>
+      <td width="510" height="22" colspan="8">
+		<font color="#080000">
+		<select name="on_failure_id_selected" style="width:487px; font-family:Verdana; font-size:10pt;" size="5" multiple="multiple">
+		<% Dim strOnFailureIDs   %>
+		<% Dim strOnFailureDescs %>
+		<% strOnFailureIDs = Split(strSelectOnFailureID, ",")%>
+		<% strOnFailureDescs = Split(strSelectOnFailureDesc, ",")%>
+	    <% For intLoopCount = LBound(strOnFailureIDs) To UBound(strOnFailureIDs)  %> 
+	    	<% If IsNumeric(strOnFailureIDs(intLoopCount)) Then %>
+	    	<option value="<%=strOnFailureIDs(intLoopCount) %>"><%=strOnFailureDescs(intLoopCount) %></option>
+	    	<% End If %>
+		<% Next %>		
+		</select>
+		</font>
+	  </td>
+      <td width="262" height="22">&nbsp;</td>
+    </tr>
+    <!-- End follow-on rules -->

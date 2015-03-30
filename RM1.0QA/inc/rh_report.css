@@ -1,0 +1,25 @@
+﻿
+th.header           { noWrap align="right" bgColor="#CFD7DB" style="font-size: 0.8em; color: navy; font-family: Verdana, Arial, sans-serif" }
+.profile_header { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:0; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left }
+.profile_header_center { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:0; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:center }
+.profile_light { height="68" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:left }
+.profile_dark { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:left }
+.profile_light_right { height="68" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:right }
+.profile_dark_right { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:right }
+.profile_light_ctr { height="68" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:center }
+.profile_dark_ctr { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:center }
+.profile_boarder { height="30" text-align:left; padding-left:0; padding-right:0; padding-top:2; background-color:#3C5967; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left }
+body         { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt }
+.report_detail_dark { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left; font-weight:bold  }
+P {	COLOR: navy; FONT-FAMILY: Verdana, Arial, sans-serif}
+.copyright {	FONT-SIZE: 0.7em; TEXT-ALIGN: right}
+.report_detail_dark { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left; font-weight:bold  }
+.report_detail_light { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left}
+.report_rate_dark_black { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:right; color:#000000}
+.report_rate_dark_red {height="48" text-align:right; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; vertical-align:bottom; text-align:right; color:#CC3300}
+.report_rate_dark_green { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:right; color:#008000}
+.report_rate_light_black { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:right; color:#000000}
+.report_rate_light_red {height="48" text-align:right; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; vertical-align:bottom; text-align:right; color:#CC3300}
+.report_rate_light_green { 	height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:right; color:#008000}
+.vendor { background-color:#B2BEC4; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; text-align:center; color:navy }
+.date {font-size: 0.8em; color: #000080; font-family: Verdana, Arial, sans-serif; text-align:right; background-color:#B2BEC4}

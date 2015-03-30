@@ -1,0 +1,71 @@
+﻿<!------------------------------------------------------------------------
+//
+//  File:         MyWebPage.htm (Test html page for Color Picker Control)
+//
+//  Description:  The ColorPicker behavior provides an easy, declarative way
+//                to add a standard color picker control to web pages and html
+//                based applications.  It provides a variety of properties
+//                to customize the look and feel along with a strong set 
+//                events and functionality.
+//
+//	Author:		  Venkata Karthikeyan, GE Power Systems (Bently Nevada)
+//				  venkat_it@hotmail.com
+//----------------------------------------------------------------------->
+
+<head>
+</head>
+
+<script>
+
+	var DHTML = (document.getElementById || document.all || document.layers);
+
+
+	//Show Color Picker dialog
+	function ShowColorPicker(butID)
+	{
+		//document.all["textboxFromDate"].value = window.showModalDialog('ColorPicker.htm',document.all["textboxFromDate"].value,'dialogHeight:455px;dialogWidth:370px;center:Yes;help:No;scroll:No;resizable:No;status:No;');
+		changeCol(window.showModalDialog('ColorPicker.htm',document.all["textboxFromDate"].value,'dialogHeight:455px;dialogWidth:370px;center:Yes;help:No;scroll:No;resizable:No;status:No;'));
+
+	}
+
+	function changeCol(col)
+	{
+		if (!DHTML) return;
+		var x = new getObj('celltest');
+		x.style.backgroundColor = col;
+	}
+
+	function getObj(name)
+	{
+	  if (document.getElementById)
+	  {
+	  	this.obj = document.getElementById(name);
+		this.style = document.getElementById(name).style;
+	  }
+	  else if (document.all)
+	  {
+		this.obj = document.all[name];
+		this.style = document.all[name].style;
+	  }
+	  else if (document.layers)
+	  {
+	   	this.obj = document.layers[name];
+	   	this.style = document.layers[name];
+	  }
+	}
+
+</script>
+<INPUT id="textboxFromDate" style="WIDTH: 130px; HEIGHT: 22px" type="text" size="16" name="textboxFromDate" runat="server" b >
+<INPUT id="Button1" onclick="ShowColorPicker(this);" type="button" value="Pick Color..." name="Button1">
+<br>
+<br>
+<table style="width: 100%">
+	<tr>
+		<td name="celltest" id="celltest" class="style1">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>

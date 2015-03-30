@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE Grid SYSTEM "AspGrid.dtd">
+<Grid>
+
+
+	<Cols Index="user_id">
+		<Caption >ID</Caption>
+		<ReadOnly>True</ReadOnly>
+	</Cols>
+
+	<Cols Index="user_id">
+		<Header Width="200">
+			<Font Class="table_header_first"/>
+		</Header>
+		
+	</Cols>
+	<Cols Index="expiration">
+		<FormatDate Format="%m/%d/%y"/>
+		<Caption>Exp. Date</Caption>
+	</Cols>
+	
+	<Cols Index="last_login">
+		<FormatDate Format="%m/%d/%y"/>
+		<Caption>Login</Caption>
+	</Cols>
+	
+	<Cols Index="modified">
+		<FormatDate Format="%m/%d/%y"/>
+		<Caption>Modified</Caption>
+	</Cols>
+
+	<Cols Index="lob_id">
+		<Array>
+			<Item Value="Air" DBValue="3"/>
+			<Item Value="Car" DBValue="2"/>
+			<Item Value="Hotel" DBValue="1"/>
+		</Array>
+		<Caption>Type</Caption>
+	</Cols>
+
+
+	<Cols Index="0">
+		<Header BGColor="#B0B0FF"/>
+	</Cols>
+
+	<Cols Index="999">
+		<Header BGColor="#B0B0FF"/>
+	</Cols>
+
+	<ColRange From="2" To="14">
+		<Cell AltBGColor="#CFD7DB" BGColor="#B2BEC4" Class="cell_data"/>
+		<Header BGColor="#B0B0FF">
+			<Font Class="table_header" />
+		</Header>
+		
+	</ColRange>
+
+
+	<ColRange From="1" To="1" >
+		<CanSort>True</CanSort>
+		<Header BGColor="#E07D1A" /> 
+		<Cell Class="cell_data" />
+
+	</ColRange>
+
+	<Table CellPadding="1" CellSpacing="0" Width="1000">
+		<TableCaption Value="Rate-Monitor Users">
+			<Font Face="Arial" Bold="True" Size="9"/>
+		</TableCaption>
+	</Table>
+
+
+</Grid>

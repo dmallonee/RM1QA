@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+   <head>
+         <title>webRDP&#8482;</title>
+         <meta http-equiv='content-type' content='text/html; charset=iso-8859-1'/>
+         <meta http-equiv='content-style-type' content='text/css'/>
+         <meta http-equiv='expires' content='Wed, 26 Feb 1997 08:21:57 GMT'/>
+         <meta http-equiv='pragma' content='no-cache'/>
+
+        <!-- Sets margin around applet -->
+        <style>
+           body.swproxyBody  { margin:4px;; }
+        </style>
+        <script type='text/javascript'>
+        // This method is called after the user logs out of their RDP session.   The method name is a configurable applet parameter.
+
+        function rdpOnLogout() {
+           alert ( ' User has Logged out ' );
+    															}
+        </script>  
+    </head>
+    <body class='swproxyBody'>
+
+       <!-- Loads the applet and utilizes 100% of browser window width and height.  Width and height could be hard coded to specific values -->
+       <applet name='rdp' code='com.webinflection.webrdp.MainApplet' archive='webRDP.jar' width='100%' height='100%'> 
+
+       <!-- Hostname or IP Address of Terminal Server -->
+       <!-- This is a required parameter -->
+       <param name='host' value='bvlt661.rate-monitor.com'/>
+
+       <!-- Port that the Terminal Server -->
+       <!-- This is a required parameter -->
+       <param name='port' value='3389'/>
+    
+    	<!-- Username to authenticate to terminal server with -->
+    	<!-- Optional SSO Parameter -->
+       <param name='username' value='search'/>
+
+    	<!-- Password to authenticate to terminal server with --> 
+    	<!-- Optional SSO Parameter -->
+       <param name='password' value='benson'/>
+
+    
+
+    	</applet>
+     </body>
+</html>

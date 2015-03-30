@@ -1,0 +1,48 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.8em; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: verdana, sans-seriff; TEXT-ALIGN: center
+}
+A {
+	COLOR: #333
+}
+A:hover {
+	COLOR: #666
+}
+#green {
+	BACKGROUND: url(/msg/images/greenBG.gif) no-repeat right bottom; PADDING-BOTTOM: 15px; MARGIN: 10% auto -30px; WIDTH: 500px; HEIGHT: auto; TEXT-ALIGN: left
+}
+#red {
+	BACKGROUND: url(/msg/images/redBG.gif) no-repeat right bottom; PADDING-BOTTOM: 15px; MARGIN: 10% auto -30px; WIDTH: 500px; HEIGHT: auto; TEXT-ALIGN: left
+}
+#box {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 30px 10px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 1.2em; PADDING-BOTTOM: 0px; MARGIN: 0px -20px 0px -30px; PADDING-TOP: 25px; FONT-FAMILY: arial, sans-sariff; TEXT-ALIGN: center
+}
+#green H1 {
+	BACKGROUND: url(/msg/images/greenBG.gif) no-repeat left top
+}
+#red H1 {
+	BACKGROUND: url(/msg/images/redBG.gif) no-repeat left top
+}
+H2 {
+	FONT-SIZE: 1em; PADDING-BOTTOM: 3px; MARGIN: 0px; BORDER-BOTTOM: #ccc 2px solid; FONT-FAMILY: arial, sans-serrif; TEXT-ALIGN: center
+}
+.date {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.75em; MARGIN: 0px; LINE-HEIGHT: 1.4em; PADDING-TOP: 10px; TEXT-ALIGN: center
+}
+.message_type {
+	FONT-SIZE: 0.75em; MARGIN: 0px; LINE-HEIGHT: 1.4em; PADDING-TOP: 10px; TEXT-ALIGN: center
+}
+P {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-TOP: 5px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.checkbox {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.continue {
+	FLOAT: right
+}
