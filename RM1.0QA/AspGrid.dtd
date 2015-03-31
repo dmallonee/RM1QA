@@ -1,0 +1,174 @@
+<!ELEMENT Grid (Connect?, SQL?, Cols*, ColRange*, 
+	DeleteButtonOnClick?, ExtraFormItems?, FileName?,
+	FormOnSubmit?, ImagePath?, SaveButtonOnClick?,
+	SQLAfterDelete?, SQLAfterInsert?, SQLAfterUpdate?, 
+	SQLBeforeDelete?, SQLBeforeInsert?, SQLBeforeUpdate?, 
+	ShowLeftSideButtons?, Table?)>
+<!ATTLIST Grid CanAppend		CDATA #IMPLIED>
+<!ATTLIST Grid CanDelete		CDATA #IMPLIED>
+<!ATTLIST Grid CanEdit			CDATA #IMPLIED>
+<!ATTLIST Grid MaxRows			CDATA #IMPLIED>
+<!ATTLIST Grid MethodGet		CDATA #IMPLIED>
+<!ATTLIST Grid NumberOnPage		CDATA #IMPLIED>
+<!ATTLIST Grid ReadOnly			CDATA #IMPLIED>
+<!ATTLIST Grid ShowHeader		CDATA #IMPLIED>
+<!ATTLIST Grid UseImageButtons	CDATA #IMPLIED>
+
+<!ELEMENT Cols (AttachCalendar?, AttachCheckbox?, AttachExpression?, AttachForeignTable?,
+	AttachTextarea?, FormatDate?, FormatNumeric?,
+	Array?, CanSort?, Caption?, Cell?, DefaultValue?, FieldName?,
+	Footer?, Header?, Hidden?, 
+	InputMaxLength?, InputSize?, InputUserAttributes?, ReadOnly?)>
+<!ATTLIST Cols Index CDATA #REQUIRED>
+
+<!ELEMENT ColRange (AttachCalendar?, AttachCheckbox?, AttachExpression?, AttachForeignTable?,
+	AttachTextarea?, FormatDate?, FormatNumeric?,
+	Array?, CanSort?, Caption?, Cell?, DefaultValue?, FieldName?,
+	Footer?, Header?, Hidden?, 
+	InputMaxLength?, InputSize?, InputUserAttributes?, ReadOnly?)>
+<!ATTLIST ColRange From CDATA #REQUIRED>
+<!ATTLIST ColRange To CDATA #REQUIRED>
+
+	<!ELEMENT AttachCalendar EMPTY>
+	<!ATTLIST AttachCalendar Month CDATA #IMPLIED>
+	<!ATTLIST AttachCalendar Year CDATA #IMPLIED>
+	<!ATTLIST AttachCalendar Format CDATA #IMPLIED>
+
+	<!ELEMENT AttachCheckbox EMPTY>
+	<!ATTLIST AttachCheckbox Checked		CDATA #REQUIRED>
+	<!ATTLIST AttachCheckbox Unchecked		CDATA #REQUIRED>
+
+	<!ELEMENT AttachExpression EMPTY>
+	<!ATTLIST AttachExpression Expression	CDATA #REQUIRED>
+
+	<!ELEMENT AttachForeignTable EMPTY>
+	<!ATTLIST AttachForeignTable SQL		CDATA #REQUIRED>
+	<!ATTLIST AttachForeignTable KeyCol		CDATA #REQUIRED>
+	<!ATTLIST AttachForeignTable DispCol	CDATA #REQUIRED>
+
+	<!ELEMENT AttachTextarea EMPTY>
+	<!ATTLIST AttachTextarea Rows CDATA #IMPLIED>
+	<!ATTLIST AttachTextarea Cols CDATA #IMPLIED>
+
+	<!ELEMENT FormatDate EMPTY>
+	<!ATTLIST FormatDate Format		CDATA #REQUIRED>
+	<!ATTLIST FormatDate EditFormat CDATA #IMPLIED>
+
+	<!ELEMENT FormatNumeric EMPTY>
+	<!ATTLIST FormatNumeric Decimal			CDATA #REQUIRED>
+	<!ATTLIST FormatNumeric ThouComma		CDATA #IMPLIED>
+	<!ATTLIST FormatNumeric NegativeSign	CDATA #IMPLIED>
+	<!ATTLIST FormatNumeric FloatingPoint	CDATA #IMPLIED>
+	<!ATTLIST FormatNumeric Prefix			CDATA #IMPLIED>
+
+	<!ELEMENT Array (Item+)>
+		<!ELEMENT Item EMPTY>
+		<!ATTLIST Item Value CDATA #REQUIRED>
+		<!ATTLIST Item DBValue CDATA #IMPLIED>
+
+	<!ELEMENT CanSort				(#PCDATA)>
+	<!ELEMENT Caption				(#PCDATA)>
+
+	<!ELEMENT Cell (Font?)>
+	<!ATTLIST Cell Align		CDATA #IMPLIED>
+	<!ATTLIST Cell AltBGColor	CDATA #IMPLIED>
+	<!ATTLIST Cell BGColor		CDATA #IMPLIED>
+	<!ATTLIST Cell Class		CDATA #IMPLIED>
+	<!ATTLIST Cell Custom		CDATA #IMPLIED>
+	<!ATTLIST Cell NoWrap		CDATA #IMPLIED>
+	<!ATTLIST Cell VAlign		CDATA #IMPLIED>
+	<!ATTLIST Cell Width		CDATA #IMPLIED>
+
+	<!ELEMENT DefaultValue		(#PCDATA)>
+	<!ATTLIST DefaultValue Type (boolean|float|int|string|date) #IMPLIED>
+
+	<!ELEMENT FieldName				(#PCDATA)>
+
+	<!ELEMENT Footer (Font?)>
+	<!ATTLIST Footer Align		CDATA #IMPLIED>
+	<!ATTLIST Footer AltBGColor CDATA #IMPLIED>
+	<!ATTLIST Footer BGColor	CDATA #IMPLIED>
+	<!ATTLIST Footer Class		CDATA #IMPLIED>
+	<!ATTLIST Footer Custom		CDATA #IMPLIED>
+	<!ATTLIST Footer NoWrap		CDATA #IMPLIED>
+	<!ATTLIST Footer VAlign		CDATA #IMPLIED>
+	<!ATTLIST Footer Width		CDATA #IMPLIED>
+
+	<!ELEMENT Header (Font?)>
+	<!ATTLIST Header Align		CDATA #IMPLIED>
+	<!ATTLIST Header AltBGColor CDATA #IMPLIED>
+	<!ATTLIST Header BGColor	CDATA #IMPLIED>
+	<!ATTLIST Header Class		CDATA #IMPLIED>
+	<!ATTLIST Header Custom		CDATA #IMPLIED>
+	<!ATTLIST Header NoWrap		CDATA #IMPLIED>
+	<!ATTLIST Header VAlign		CDATA #IMPLIED>
+	<!ATTLIST Header Width		CDATA #IMPLIED>
+
+		<!ELEMENT Font EMPTY>
+		<!ATTLIST Font Bold			CDATA #IMPLIED>
+		<!ATTLIST Font Class		CDATA #IMPLIED>
+		<!ATTLIST Font Color		CDATA #IMPLIED>
+		<!ATTLIST Font Custom		CDATA #IMPLIED>
+		<!ATTLIST Font Face			CDATA #IMPLIED>
+		<!ATTLIST Font Italic		CDATA #IMPLIED>
+		<!ATTLIST Font Size			CDATA #IMPLIED>
+		<!ATTLIST Font Underlined	CDATA #IMPLIED>
+	
+	<!ELEMENT Hidden				(#PCDATA)>
+	<!ELEMENT InputMaxLength		(#PCDATA)>
+	<!ELEMENT InputSize				(#PCDATA)>
+	<!ELEMENT InputUserAttribute	(#PCDATA)>
+	<!ELEMENT ReadOnly				(#PCDATA)>
+
+	<!ELEMENT VArray (Item+)>
+
+<!ELEMENT Connect EMPTY>
+<!ATTLIST Connect DSN		CDATA #REQUIRED>
+<!ATTLIST Connect Username	CDATA #REQUIRED>
+<!ATTLIST Connect Password	CDATA #REQUIRED>
+<!ATTLIST Connect Options	CDATA #IMPLIED>
+
+<!ELEMENT CanAppend				(#PCDATA)>
+<!ELEMENT CanDelete				(#PCDATA)>
+<!ELEMENT CanEdit				(#PCDATA)>
+<!ELEMENT DeleteButtonOnClick	(#PCDATA)>
+<!ELEMENT ExtraFormItems		(#PCDATA)>
+<!ELEMENT FileName				(#PCDATA)>
+<!ELEMENT FormOnSubmit			(#PCDATA)>
+<!ELEMENT ImagePath				(#PCDATA)>
+<!ELEMENT MaxRows				(#PCDATA)>
+<!ELEMENT MethodGet				(#PCDATA)>
+<!ELEMENT NumberOnPage			(#PCDATA)>
+<!ELEMENT SaveButtonOnClick		(#PCDATA)>
+<!ELEMENT ShowHeader			(#PCDATA)>
+<!ELEMENT SQL					(#PCDATA)>
+
+<!ELEMENT Table (TableCaption?)>
+<!ATTLIST Table Align		CDATA #IMPLIED>
+<!ATTLIST Table BGColor		CDATA #IMPLIED>
+<!ATTLIST Table Border		CDATA #IMPLIED>
+<!ATTLIST Table CellPadding CDATA #IMPLIED>
+<!ATTLIST Table CellSpacing CDATA #IMPLIED>
+<!ATTLIST Table Class		CDATA #IMPLIED>
+<!ATTLIST Table Custom		CDATA #IMPLIED>
+<!ATTLIST Table Height		CDATA #IMPLIED>
+<!ATTLIST Table Width		CDATA #IMPLIED>
+
+	<!ELEMENT TableCaption (Font?)>
+	<!ATTLIST TableCaption Value CDATA #REQUIRED>
+
+<!ELEMENT SQLAfterDelete		(#PCDATA)>
+<!ELEMENT SQLAfterInsert		(#PCDATA)>
+<!ELEMENT SQLAfterUpdate		(#PCDATA)>
+<!ELEMENT SQLBeforeDelete		(#PCDATA)>
+<!ELEMENT SQLBeforeInsert		(#PCDATA)>
+<!ELEMENT SQLBeforeUpdate		(#PCDATA)>
+<!ELEMENT UseImageButtons		(#PCDATA)>
+
+<!ELEMENT ShowLeftSideButtons EMPTY>
+<!ATTLIST ShowLeftSideButtons RightButtonsIntact CDATA #IMPLIED>
+
+
+
+
+

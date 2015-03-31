@@ -1,0 +1,35 @@
+﻿.email_table {
+	background-color: #FFFFFF;
+	margin-left:auto;
+	margin-right:auto;
+	width: 699px;
+}
+.left_border {
+	background-color: #E7E7E7;
+	width: 22px;
+}
+.right_border {
+	background-color: #E7E7E7;
+}
+.email_body {
+	padding: 4px;
+	background-color: #FFFFFF;
+	width: 648px;
+}
+.default {
+	background-color: #E7E7E7;
+	text-align:center;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+	font-size: small;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	color: #808080;
+	list-style-type: circle;
+}
+ tr,td {
+ 	text-align:left;
+}
+.footer {
+	background-color: #E7E7E7;
+}

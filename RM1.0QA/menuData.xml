@@ -1,0 +1,7 @@
+<items>
+	   <item Text="View" ClientSideCommand="onContextMenuSelect();" />
+		<item Text="---------" />
+	   <item Text="Cancel" />
+	   <item Text="Suspend" />
+	   <item Text="Resume" />
+</items>

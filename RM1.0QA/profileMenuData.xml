@@ -1,0 +1,9 @@
+<items>
+	<item Text="Run" ClientSideCommand="onContextMenuSelect('Run');" />
+	<item Text="---------" />
+	<item Text="Edit" ClientSideCommand="onContextMenuSelect('Edit');" />
+	<item Text="Enable" ClientSideCommand="onContextMenuSelect('Enable');" />
+	<item Text="Disable" ClientSideCommand="onContextMenuSelect('Disable');" />
+	<item Text="---------" />
+	<item Text="Delete" ClientSideCommand="onContextMenuSelect('Delete');" />
+</items>
