@@ -1,0 +1,323 @@
+﻿.Grid 
+{ 
+  border: 1px solid #57566F; 
+  border-bottom: 2px solid #57566F; 
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.GridHeader
+{
+    background-color: transparent; 
+    border-bottom: 1px solid #57566F;
+    height: 32px;
+    padding-left: 3px;
+    cursor: default;
+    background-image: url(../images/b_tile.gif);
+    background-repeat: repeat-x;
+}
+
+.GridHeaderText
+{
+  color: #FFFFFF;  
+  font-family: Verdana, Arial; 
+  font-size: 10px;
+}
+
+
+.GridFooter
+{
+  cursor: default; 
+  padding: 5px;
+  vertical-align: bottom;
+}
+
+.GridFooterText
+{
+  color: #000000;  
+  font-family: Verdana, Arial; 
+  font-size: 11px;
+}
+
+.HeadingRowSave1 
+{ 
+  background-color: #E9E9EB; 
+  background-image: url(../images/header_Bg.gif);
+    /*background-image: url(../images/user_tile.gif);*/
+    color:White;
+}
+
+.HeadingRow
+{
+    background-color: transparent;
+    background-image: url(../images/b_tile.gif);
+    color: White;
+    background-repeat: repeat-x;
+    height: 32px;
+}
+
+
+.HeadingCell
+{
+    background-color: transparent;
+    background-image: url(../images/b_tile.gif);
+    color: White;
+    background-repeat: repeat-x;
+    height: 32px;
+    padding: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.HeadingCellHover
+{ 
+  background-image: url(../images/b_tile.gif);  
+  background-color: #F6F6F7; 
+}
+
+.RowHover
+{
+	background-color: Orange;
+	cursor: default;
+	font-family: Verdana, Arial;
+	font-size: 10px; 
+	color: Black;
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; }
+
+.GrayRowHover
+{
+	background-color: Orange;
+	cursor: default;
+	font-family: Verdana, Arial;
+	font-size: 10px; 
+	color: Gray;
+ 
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; 
+
+
+}
+
+
+.HeadingCellActive
+{ 
+  background-image: url(../images/header_activeBg.gif);  
+  background-color: #F6F6F7; 
+  
+}
+
+.HeadingRow td.FirstHeadingCell
+{ 
+    background-color: transparent;
+    background-image: url(../images/b_tile.gif);
+    color: White;
+    background-repeat: repeat-x;
+    height: 32px;
+    padding: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.HeadingCellText
+{
+    font-family: Verdana, Arial;
+    font-size: 10px;
+    font-weight: normal;
+    text-align: left;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.Row 
+{ 
+  background-color: #FFFFFF; 
+  cursor: default;
+}
+
+.Row td.DataCell 
+{ 
+  padding: 3px; 
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; 
+  font-family: Verdana, Arial; 
+  font-size: 10px; 
+} 
+
+.SortedDataCell 
+{ 
+  background-color: #F5F5F5; 
+} 
+
+
+.Row td.LastDataCell 
+{ 
+  background-color: #EFEFF4; 
+} 
+
+.GrayRow td.DataCell 
+{ 
+  padding: 3px; 
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; 
+  font-family: Verdana, Arial; 
+  font-size: 10px;
+  color: Gray;
+} 
+
+.GrayRow 
+{ 
+  background-color: #FFFFFF; 
+  cursor: default;
+}
+
+.BlueRow td.DataCell 
+{ 
+  padding: 3px; 
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; 
+  font-family: Verdana, Arial; 
+  font-size: 10px;
+  color: Blue;
+} 
+
+.BlueRow 
+{ 
+  background-color: #FFFFFF; 
+  cursor: default;
+}
+
+.GreenRow td.DataCell 
+{ 
+  padding: 3px; 
+  padding-top: 2px; 
+  padding-bottom: 1px; 
+  border-bottom: 1px solid #EAE9E1; 
+  font-family: Verdana, Arial;
+  font-size: 10px;
+  color: Green;
+} 
+
+.GreenRow 
+{ 
+  background-color: #FFFFFF; 
+  cursor: default;
+}
+
+
+.SelectedRow 
+{ 
+}
+
+.SelectedRow td.DataCell 
+{ 
+  /*background-color: #FFEEC2; */
+  background-color: Orange;
+  padding: 2px; 
+  padding-left: 3px; 
+  padding-top: 1px; 
+  padding-bottom: 1px; 
+  font-family: Verdana, Arial; 
+  font-size: 10px; 
+  border-bottom: 1px solid #4B4B6F; 
+  border-top: 1px solid #4B4B6F; 
+  border-right: 0px; 
+}
+
+.SelectedRow td.FirstDataCell 
+{ 
+  /*background-color: #FFEEC2; */
+  background-color: Orange;
+  border-left: 1px solid #4B4B6F; 
+  border-right: 0px; 
+  padding-left: 2px; 
+  padding-right: 3px; 
+}
+
+.SelectedRow td.LastDataCell 
+{ 
+  /*background-color: #FFEEC2; */
+  background-color: Orange;
+  border-right: 1px solid #4B4B6F; 
+}
+
+.GroupHeading
+{
+  color: #706F91; 
+  background-color: #FFFFFF; 
+  font-family: Verdana, Arial; 
+  font-weight: bold;
+  font-size: 11px; 
+  border-bottom: 2px solid #A5A4BD; 
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+.GroupByCell
+{
+  cursor: pointer;
+}
+
+.GroupByText
+{
+  color: #FFFFFF; 
+  font-size: 11px;   
+  font-weight: bold; 
+  padding-right: 5px;
+}
+
+
+.SliderPopup
+{
+  background-color: #FFF4D7; 
+  border: 1px solid #4B4B6F; 
+  border-top-color: #9495A2; 
+  border-left-color: #9495A2; 
+  width: 288px;
+  height: 60px;
+}
+
+.GridCheckBox
+{
+    border: 0px;
+    background-image: none;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-top: 0px;
+    background-color: transparent;
+}
+ 
+input.GridSearchText focus {
+	margin:0px 0px 0px 0px;
+	border-bottom: #ffdead solid 2px;
+	border-right: #ffdead solid 2px;
+	border-left: #c07300 solid 2px;
+	border-top:  #c07300 solid 2px;
+}
+
+input.GridSearchText {
+	background-image:url('../images/input_orange.gif');
+	color:#000000;
+	padding-left:4px;
+	margin:1px 1px 1px 1px;
+	border:1px solid black;
+    text-align: left;
+}
+
+.GridSearchText
+{
+    font-family: Verdana, Arial;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: right;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    color: white;
+}

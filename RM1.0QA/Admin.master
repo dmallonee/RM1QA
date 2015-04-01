@@ -1,0 +1,153 @@
+<%@ Master Language="VB" CodeFile="Admin.master.vb" Inherits="Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us"/>
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0"/>
+<meta name="ProgId" content="FrontPage.Editor.Document"/>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+<title>Rate-Monitor by Rate-Highway, Inc. | Rate Rule Schedule Management</title>
+<link rel="stylesheet" type="text/css" href="inc/rh_standard.css" />
+<link rel="stylesheet" type="text/css" href="inc/rh_report.css" />
+<link rel="stylesheet" type="text/css" href="inc/sitewide.css" />
+<link rel="stylesheet" type="text/css" href="gridStyle.css" />
+<link rel="stylesheet" type="text/css" href="popCalendar.css" />
+<link rel="Stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js" ></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js" ></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.1.0.js" ></script>
+<script type="text/javascript" src="inc/jquery.parseQuerystring.js"></script>
+<script type="text/javascript" src="inc/sitewide.js" ></script>
+<script type="text/javascript" src="inc/js_calendar_v2.js" ></script>
+<script type="text/javascript" src="inc/validate2.js" ></script>
+<script type="text/javascript" src="inc/multiple_select_support.js" ></script>
+<script type="text/javascript" src="inc/multiple_select_support2.js" ></script>
+<script type="text/javascript" src="inc/header_menu_support.js" ></script>
+<style type="text/css" >
+<!--
+P {
+	COLOR: navy; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.data_cell   { width: 65; text-align: right; font-family: Tahoma; font-size: 10pt }
+.data_cell_ctr   { width: 65; text-align: center; font-family: Tahoma; font-size: 10pt }
+.header      { width: 65; text-align: center; background-color: #CFD7DB }
+.copyright {
+	FONT-SIZE: 0.7em; TEXT-ALIGN: right
+}
+
+td {
+	font-size: x-small;
+	font-weight: normal;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.style1 {
+	text-align: center;
+}
+
+.style2 {
+	background-color: #F0F0EA;
+
+}
+
+.wizard_input_disabled
+{
+    font-family:Verdana; font-size:10pt; text-align:right; background-image:url('images/alt_color.gif');
+}
+
+.wizard_input
+{
+    font-family:Verdana; font-size:10pt; text-align:right;
+}
+
+.nugrid_header { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:0; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:left }
+.nugrid_input { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:8pt;}
+.nugrid_header_center { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:0; background-color:#879AA2; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; vertical-align:bottom; text-align:center }
+.nugrid_light { height="68" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#CFD7DB; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:left }
+.nugrid_dark { height="48" text-align:left; padding-left:3; padding-right:3; padding-top:3; background-color:#B2BEC4; font-family:Verdana; font-size:10pt; vertical-align:bottom; text-align:left }
+
+
+-->
+</style>
+<script type="text/javascript">
+function centerPopUp( url, name, width, height, scrollbars ) { 
+ 
+	if( scrollbars == null ) scrollbars = "0" 
+ 
+	str  = ""; 
+	str += "resizable=1,"; 
+	str += "scrollbars=" + scrollbars + ","; 
+	str += "width=" + width + ","; 
+	str += "height=" + height + ","; 
+ 
+	if ( window.screen ) { 
+		var ah = screen.availHeight - 30; 
+		var aw = screen.availWidth - 10; 
+ 
+		var xc = ( aw - width ) / 2; 
+		var yc = ( ah - height ) / 2; 
+ 
+		str += ",left=" + xc + ",screenX=" + xc; 
+		str += ",top=" + yc + ",screenY=" + yc; 
+	} 
+	window.open( url, name, str ); 
+} 
+
+// Hide and display the addtional Rate information layer
+function toggleLayer(whichLayer)
+{
+if (document.getElementById)
+{
+// this is the way the standards work
+var style2 = document.getElementById(whichLayer).style;
+style2.display = style2.display? "":"block";
+}
+else if (document.all)
+{
+// this is the way old msie versions work
+var style2 = document.all[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+else if (document.layers)
+{
+// this is the way nn4 works
+var style2 = document.layers[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+}
+</script> 
+</head>
+<body topmargin="0">
+<form id="form1" runat="server">
+    <div>
+        
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="images/top_middle.jpg"><img src="images/top_left.jpg" width="423" height="91"></td>
+    <td background="images/top_middle.jpg"></td>
+    <td background="images/top_tile.gif"><img src="images/top_right.jpg" width="365" height="91"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td background="images/med_bar_tile.gif"><img src="images/med_bar.gif"></td>
+  </tr>
+</table>
+<p align="right"><font class="copyright">Copyright (c) 2001-<%=Year(Now)%>, Rate-Highway, Inc. All Rights Reserved.</font></p>
+<p>
+<asp:contentplaceholder id="cphMain" runat="server">
+        </asp:contentplaceholder>
+    </div>
+    </form>
+    
+    <p align="center"><font size="2"><br>
+&nbsp;</p>
+<p align="center">&nbsp;</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+﻿    <table width="400" border="0" cellspacing="0" cellpadding="0" name="page_header_buttons">
+      <tr>
+        <td><img src="images/b_left.jpg" width="62" height="32" alt=""></td>
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("search_profiles") = "True" Then %>
+        <a href="search_profiles_car.asp" onmouseover="MM_swapImage('s1','','images/b_search_pro_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('s1','','images/b_search_pro_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_search_pro_of.gif" name="s1" border="0" id="s1" width="183" height="32" alt=""></a></td>
+
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("search_queue") = "True" Then %>
+        <a href="search_queue_car.asp" onmouseover="MM_swapImage('s2','','images/b_search_que_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('s2','','images/b_search_que_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_search_que_of.gif" name="s2" border="0" id="s2" width="97" height="32" alt=""></a></td>
+
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("search_criteria") = "True" Then %>
+        <a href="search_criteria_car.asp" onmouseover="MM_swapImage('s3','','images/b_search_cri_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('s3','','images/b_search_cri_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_search_cri_of.gif" name="s3" border="0" id="s3" width="103" height="32" alt=""></a></td>
+
+        <!--<td>
+        <% If Request.Cookies("rate-monitor.com")("rate_reports") = "True" Then %>
+        <a href="rate_calendar_car.asp" onmouseover="MM_swapImage('ra','','images/b_rate_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('ra','','images/b_rate_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_rate_of.gif" name="ra" border="0" id="ra" width="88" height="32" alt=""></a></td>-->
+        
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("search_alerts") = "True" Then %>
+        <a href="alerts_rate_management_car.asp" onmouseover="MM_swapImage('al','','images/b_rules_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('al','','images/b_rules_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_rules_of.gif" name="al" border="0" id="al" width="53" height="32" alt=""></a></td>
+
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("user") = "True" Then %>
+        <a href="user_configuration_car.asp" onmouseover="MM_swapImage('us','','images/b_user_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" >
+        <% End If %>
+        <img src="images/b_user_of.gif" name="us" border="0" id="us" width="126" height="32" alt=""></a></td>
+        
+        <td>
+        <% If Request.Cookies("rate-monitor.com")("system") = "True" Then %>
+        <a href="system_utilization.asp" onmouseover="MM_swapImage('sy','','images/b_system_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% Else %>
+        <a href="javascript:not_enabled()" onmouseover="MM_swapImage('sy','','images/b_system_on.gif',1)" onmouseout="MM_swapImgRestore()">
+        <% End If %>
+        <img src="images/b_system_of.gif" name="sy" border="0" id="sy" width="58" height="32" alt=""></a></td>
+      </tr>
+
+    </table>

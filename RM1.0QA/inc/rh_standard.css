@@ -1,0 +1,9 @@
+
+body         { font-family: Vendana, Arial, Helvetica, sans-serif; font-size: 10pt }
+input        { font-family: Vendana, Arial, Helvetica, sans-serif; font-size: 10pt }
+select       { border:3px double #008080; font-family: Vendana, Arial, Helvetica, sans-serif; font-size: 10pt }
+button       { border:3px double #2A2F34; font-family: Vendana, Arial, Helvetica, sans-serif; font-size: 10pt; color:#FFFFFF; padding-left:4; padding-right:4; padding-top:1; padding-bottom:1; background-color:#384F5B }
+.rh_button       { border:3px double #2A2F34; font-family: Vendana, Arial, Helvetica, sans-serif; font-size: 10pt; color:#FFFFFF; padding-left:4; padding-right:4; padding-top:1; padding-bottom:1; background-color:#384F5B; font-weight:bold }
+button.off       { border:3px double #C0C0C0; font-family: Arial; font-size: 10pt; color:#808080; padding-left:4px; padding-right:4px; padding-top:1px; padding-bottom:1px; background-color:#C0C0C0; font-weight:bold }
+button.local       { border:3px double #C0C0C0; font-family: Arial; font-size: 10pt; color:#808080; padding-left:4px; padding-right:4px; padding-top:1px; padding-bottom:1px; background-color:#C0C0C0;  }
+button.remote       { border:3px double #C0C0C0; font-family: Arial; font-size: 10pt; color:#808080; padding-left:4px; padding-right:4px; padding-top:1px; padding-bottom:1px; background-color:#C0C0C0; font-weight:bold }
