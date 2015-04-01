@@ -6,7 +6,7 @@ When     Who What
 10/22/2014 DLM  Modified to define connection string based on database variables
                 Purpose is to eliminate any requirement that there be multiple websites.
 -->
-<!-- #INCLUDE FILE="include/adovbs.asp" --> 
+<!-- #INCLUDE FILE="inc/adovbs.asp" --> 
 <%
     Response.Expires = -1
 	Response.Expiresabsolute = Now() - 1
@@ -90,8 +90,8 @@ REM Exception for Fox 1-way
             Session("site") = Request.ServerVariables("SERVER_NAME")
  
 			If adoRS.Fields("enabled").Value = "False" Then
-			'    Server.Transfer "login_suspended.asp"
-				Response.Redirect "login_suspended.asp"
+			'    Server.Transfer "suspended.asp"
+				Response.Redirect "suspended.asp"
 				Response.End
 		    End If
 		
