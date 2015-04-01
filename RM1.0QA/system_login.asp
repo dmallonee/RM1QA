@@ -65,11 +65,11 @@ When     Who What
 		    Response.Cookies("rpt_limit") = adoRS.Fields("rpt_limit").Value
 		    Response.Cookies("user_role") = adoRS.Fields("user_role").Value
 REM Exception for Fox 1-way
-    if strLoginCode = "fx1way" then
-    	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_fx1;Data Source=athena.rate-monitor.com;"
-    else								
+REM   if strLoginCode = "fx1way" then
+REM    	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_fx1;Data Source=athena.rate-monitor.com;"
+REM    else								
     	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=" & adoRS.Fields("dbname").Value & ";Data Source=" & adoRS.Fields("dbserver").Value & ".rate-monitor.com;"
-    end if
+REM    end if
 
 		    Session("testing") = adoRS.Fields("testing").Value
 		    Session("user_name") = adoRS.Fields("first_name").Value & " " & adoRS.Fields("last_name").Value
