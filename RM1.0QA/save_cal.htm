@@ -1,0 +1,219 @@
+<HTML><HEAD>
+<STYLE>
+<!--
+TABLE{font:8pt arial}
+A{color:#333399}
+A:hover{color:#ff6600}
+//-->
+</STYLE>
+</head>
+<BODY BGCOLOR=white TEXT=black onLoad="DoLoad()">
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=1 WIDTH=148 ID=PTBL STYLE="border:2px solid black">
+<TR><TD HEIGHT=169 ALIGN=MIDDLE STYLE="font:10pt arial">Loading Calendar...</TD></TR>
+<TR><TD HEIGHT=16 ALIGN=MIDDLE><A HREF='javascript:window.parent.CancelCal()'>Cancel</A></TD><TR>
+</TABLE>
+<STYLE>
+<!--
+.hr{background:gray;color:white;border:1px solid black}
+.hrA{background:gray;color:white;border:1px solid black;cursor:hand}
+.nt{position:absolute;width:19;height:19;visibility:hidden}
+.bt{position:absolute;width:19;height:19}
+.dt{position:absolute;width:19;height:19;cursor:hand}
+.mn{position:relative;left:0;top:0;width:141;height:121}
+.mv{position:relative}
+.mh{position:relative;visibility:hidden}
+//-->
+</STYLE>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=1 ID=TBL STYLE="display:none;border:2px solid black">
+<TR><TD HEIGHT=20>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=1><TR>
+<TD WIDTH=16 ID=PrevDiv CLASS="hr"><IMG ID=Prev SRC="images/prev.gif" WIDTH=16 HEIGHT=16 onClick="PC()" ALT="Show Previous Month"></TD>
+<TD WIDTH=101 ALIGN=MIDDLE CLASS="hr"><SPAN ID=MonthTitle></SPAN>&nbsp;&nbsp;<SPAN ID=YearTitle></SPAN></TD>
+<TD WIDTH=16 ID=NextDiv CLASS="hr"><IMG ID=Next SRC="images/next.gif" WIDTH=16 HEIGHT=16 onClick="NC()" ALT="Show Next Month"></TD>
+</TR></TABLE>
+</TD></TR>
+<TR><TD>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR><TD><IMG ID=WImg WIDTH=141 HEIGHT=20 SRC="images/week0.gif"></TD></TR>
+<TR><TD HEIGHT=1 BGCOLOR=black></TD></TR>
+<TR><TD ALIGN=MIDDLE ID=MS>
+<IMG ID=SIMG CLASS="nt" SRC="images/seldate.gif" width="19" height="19">
+<IMG ID=MIMG CLASS="mn" onLoad="ML()"><SPAN ID=BKS></SPAN><SPAN ID=BKSX></SPAN>
+<IMG ID=TIMG CLASS="nt" SRC="images/ring.gif" onClick="BC()" width="19" height="19">
+</TD></TR>
+<TR><TD HEIGHT=1 BGCOLOR=black></TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD HEIGHT=20 ALIGN=MIDDLE><A HREF="javascript:CC()">Cancel</A></TD></TR>
+</TABLE>
+
+<SPAN ID=PLI STYLE="display:none">
+<IMG SRC="images/date.gif" width="19" height="19">
+<IMG SRC="images/baddate.gif" width="19" height="19">
+</SPAN>
+
+<SCRIPT>
+<!--
+var g_fCL=false;var g_cnl=0;var da=document.all;var wp=window.parent;var cf=wp.document.all.CalFrame;var bdc,bdcx,dND,dNM,dNY,dXD,dXM,dXY;var g_month=-1;var g_day=-1;var g_year=-1;var g_mC=-1;var g_yC=-1;
+function CC(){if(0==g_cnl)g_cnl=1;cf.style.display="none";}function NC(){SC((g_mC%12)+1,g_yC+(g_mC==12?1:0))}function PC(){SC(((g_mC+10)%12)+1,g_yC-(g_mC==1?1:0))}
+function BC(){if(event.srcElement.className=="dt"){var iDay=event.srcElement.day;iDay-=DOW(1,g_mC,g_yC);SetDate(iDay,g_mC,g_yC);cf.style.display="none";}}
+function FT(s){var r=s.charAt(0);for(var i=1;i<s.length;i++) r=r+" "+s.charAt(i);return r;}function PB(e,i){e.style.left=bdc[i].style.left;e.style.top=bdc[i].style.top;}function MG(m,y){return "images/w"+DOW(1,m,y)+"d"+GetMonthCount(m,y)+".gif";}
+function SetMinMax(n,x){dND=n.getDate();dNM=n.getMonth()+1;dNY=n.getFullYear();dXD=x.getDate();dXM=x.getMonth()+1;dXY=x.getFullYear();}
+function WI(){var n="week"+wp.GetDowStart()+".gif";var o=da.WImg.src.substr(da.WImg.src.lastIndexOf("/")+1);if(o!=n)da.WImg.src=n;}
+
+function DoLoad()
+{
+	bdc=da.BKS.children;bdcx=da.BKSX.children;
+	for(var j=0;j<6;j++)
+	{
+		for(var i=0;i<7;i++)
+		{
+			da.BKS.insertAdjacentHTML("beforeEnd","<IMG CLASS='nt' onClick='BC()' src='images/date.gif'>");da.BKSX.insertAdjacentHTML("beforeEnd","<IMG CLASS='bt' src='images/baddate.gif'>");
+			var t=j*7+i;bdc[t].day=t+1;bdcx[t].style.top=bdc[t].style.top=1+20*j;bdcx[t].style.left=bdc[t].style.left=2+20*i-1;
+		}
+	}
+	g_fCL=true;
+}
+
+function SC(m,y)
+{
+	alert('m = ' + m);
+	alert('y = ' + y);
+	da.MS.className="mh";
+	da.MonthTitle.innerText="";
+	da.YearTitle.innerText="";
+	da.MIMG.mn=m;da.MIMG.yr=y;
+	da.MIMG.src=MG(m,y);
+	var n,v,iB;
+	var dt=new Date();
+	if(y<dNY||(y==dNY&&m<=dNM)){n="hr";v="hidden";}else{n="hrA";v="visible";}
+	da.PrevDiv.className=n;da.Prev.style.visibility=v;
+	if(y>dXY||(y==dXY&&m>=dXM)){n="hr";v="hidden";}else{n="hrA";v="visible";}
+	da.NextDiv.className=n;da.Next.style.visibility=v;
+	n="nt";
+	if(m==dt.getMonth()+1&&y==dt.getFullYear())
+	{
+		iB=dt.getDate()+DOW(1,dt.getMonth()+1,dt.getFullYear())-1;
+		if(ValidDate(dt.getDate(),dt.getMonth()+1,dt.getFullYear()))n="dt";
+		da.TIMG.day=bdc[iB].day;
+		PB(da.TIMG,iB);
+	}
+	da.TIMG.className=n;
+	n="nt";
+	if(-1!=g_day&&m==g_month&&y==g_year)
+	{
+		iB=g_day+DOW(1,g_month,g_year)-1;
+		PB(da.SIMG,iB);
+		n="dt";
+	}
+	da.SIMG.className=n;
+	var iMin=DOW(1,m,y);
+	var iMax=GetMonthCount(m,y)+DOW(1,m,y)-1;
+	var iS=(m==dNM&&y==dNY)?(dND+DOW(1,dNM,dNY)-1):iMin;
+	var iE=(m==dXM&&y==dXY)?(dXD+DOW(1,dXM,dXY)-1):iMax;
+	if(y<dNY||(y==dNY&&m<dNM)||y>dXY||(y==dXY&&m>dXM)){iS=iE=iMax+1;}
+	for(var i=0;i<42;i++)
+	{
+		if(i<iMin||i>iMax)n="nt";else n="dt";
+		bdc[i].className=n;
+	}
+	for(var i=0;i<42;i++)
+	{
+		if(i<iMin||i>iMax)n="nt";else if(i<iS||i>iE)n="bt";else n="nt";
+		bdcx[i].className=n;
+	}
+}
+
+function ML()
+{
+	var m=event.srcElement.mn;
+	var y=event.srcElement.yr;
+	da.MonthTitle.innerText=FT(rN[m-1]);
+	da.YearTitle.innerText=FT(y.toString());
+	g_mC=m;g_yC=y;
+	da.MS.className="mv";
+	da.PTBL.style.display="none";
+	da.TBL.style.display="block";
+	g_cnl=2;
+}
+
+function ValidDate(d,m,y){if(y<dNY||(y==dNY&&m<dNM)||(y==dNY&&m==dNM&&d<dND))return false;else if(y>dXY||(y==dXY&&m>dXM)||(y==dXY&&m==dXM&&d>dXD))return false;else return true;}
+function DOW(d,m,y){var dt=new Date(y,m-1,d);return(dt.getDay()+(7-wp.GetDowStart()))%7;}
+var rN=new Array(12);rN[0]="JAN";rN[1]="FEB";rN[2]="MAR";rN[3]="APR";rN[4]="MAY";rN[5]="JUN";rN[6]="JUL";rN[7]="AUG";rN[8]="SEP";rN[9]="OCT";rN[10]="NOV";rN[11]="DEC";
+
+function GetInputDate(t)
+{
+	if(!t.length) return false;
+	t=t.replace(/\s+/g,"");
+	if(t.match(/[^-|\d|\.|\/]/)) return false;
+	var rgt=t.split(/-|\.|\//);
+	for(var i=0;i<rgt.length;i++) rgt[i]=parseInt(rgt[i],10);
+	if(!rgt[1]) return false;
+	var m,d,y;
+	var fmt=wp.GetDateFmt();
+	if(fmt=="yymmdd")
+	{
+		if(!rgt[2]) return false;
+		m=rgt[1];d=rgt[2];y=rgt[0];
+	}
+	else
+	{
+		if(fmt=="mmddyy"){m=rgt[0];d=rgt[1];}
+		else{m=rgt[1];d=rgt[0];}//fmt=="ddmmyy"
+		if(rgt[2])y=rgt[2];
+		else y=DefYr(m,d);
+	}
+	if(y<100)y+=2000;
+	if(y<1601||y>4500||m<1||m>12||d<1||d>GetMonthCount(m,y))return false;
+	g_month=m;g_day=d;g_year=y;
+	return true;
+}
+
+function DefYr(m,d)
+{
+	var dt=new Date();
+	var yC=(dt.getYear()<1000)?1900+dt.getYear():dt.getYear();
+	if(m-1<dt.getMonth()||(m-1==dt.getMonth()&&d<dt.getDate()))yC++;
+	return yC;
+}
+
+var rM=new Array(12);rM[0]=rM[2]=rM[4]=rM[6]=rM[7]=rM[9]=rM[11]=31;rM[3]=rM[5]=rM[8]=rM[10]=30;rM[1]=28;
+function GetMonthCount(m,y){var c=rM[m-1];if((2==m)&&IsLY(y))c++;return c;}
+function IsLY(y){if(0==y%4&&((y%100!=0)||(y%400==0)))return true;else return false;}
+
+var g_eC=null;var g_eCV="";
+function DoCal(eP,eD,eDP,dmin,dmax)
+{
+	if(1==g_cnl){g_cnl=0;return;}
+	WI();SetMinMax(new Date(dmin),new Date(dmax));
+	if(eD==g_eC&&"block"==cf.style.display)
+	{
+		if(g_eCV!=eD.value&&GetInputDate(eD.value)){SC(g_month,g_year);g_eCV=eD.value;}
+		else cf.style.display="none";
+	}
+	else
+	{
+		if(GetInputDate(eD.value)||(null!=eDP&&GetInputDate(eDP.value))){SC(g_month,g_year);}
+		else{var dt=new Date();g_day=-1;g_month=-1;g_year=-1;SC(dt.getMonth()+1,dt.getFullYear());}
+		wp.PosCal(eP);
+		cf.style.display="block";
+		g_eC=eD;
+		g_eCV=eD.value;
+	}
+}
+
+function SetDate(d,m,y)
+{
+	g_eC.focus();
+	var ds=wp.GetDateSep();
+	var fmt=wp.GetDateFmt();
+	if(fmt=="mmddyy")g_eC.value=m+ds+d+ds+y;
+	else if(fmt=="ddmmyy")g_eC.value=d+ds+m+ds+y;
+	else g_eC.value=y+ds+m+ds+d;
+	g_eCV=g_eC.value;
+}
+//-->
+</SCRIPT>
+<!--#INCLUDE FILE="footer.asp"-->	
+</BODY>
+</HTML>

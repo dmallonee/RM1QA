@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Grid SYSTEM "AspGrid.dtd">
+<Grid MaxRows="25" MethodGet="False" CanEdit="False" CanAppend="False" CanDelete="False" >
+
+	<SQL>select * from [user]</SQL>
+
+	<ImagePath>images/aspgrid/</ImagePath>
+	
+	<Table CellPadding="1" CellSpacing="0" Width="1000" Align="CENTER">
+		<TableCaption Value="Rate-Monitor Users">
+			<Font Face="Arial" Bold="True" Size="4"/>
+		</TableCaption>
+	</Table>
+
+
+	
+
+	
+	
+</Grid>

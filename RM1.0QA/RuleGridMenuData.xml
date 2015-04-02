@@ -1,0 +1,8 @@
+<items>
+	<item Text="Enable" ClientSideCommand="onContextMenuSelect('Enable');" />
+	<item Text="Disable" ClientSideCommand="onContextMenuSelect('Disable');" />
+	<item LookId="BreakItem" />
+	<item Text="Delete" ClientSideCommand="onContextMenuSelect('Delete');" Look-LeftIconUrl="icon_delete.gif" Look-HoverLeftIconUrl="icon_delete_over.gif" />
+    <item LookId="BreakItem" />
+    <item Text="Exit" />
+</items>

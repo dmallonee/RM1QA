@@ -1,0 +1,71 @@
+ul.vbUL4oxmt {
+  position: absolute;
+  visibility: hidden;
+}
+.vbUL4oxmt {
+  position: absolute;
+  visibility: hidden;
+  display: block;
+  overflow: auto;
+  font-size: 1px;
+  padding: 2px;
+  margin: 0px;
+  border: 1px solid #646464;
+  background-color: #FFFFFF;
+  opacity:1.00;
+  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+}
+.vbUL4oxmt table {
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+.vbUL4oxmt tr {
+  font-size: 1px;
+  cursor: pointer;
+  background-color: #FFFFFF;  
+}
+.vbUL4oxmt tr.over {
+  background-color: #F0F0F0;
+}
+.vbUL4oxmt td {
+  border: 1px solid #FFFFFF;
+  padding: 3px;
+  text-align: left;
+}
+.vbUL4oxmt tr.over td {
+  border-color: #8C8C8C;
+}
+.vbUL4oxmt td a, .vbUL4oxmt td span{
+  font-family: Tahoma;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+}
+.vbUL4oxmt tr.over a, .vbUL4oxmt tr.over span {
+  font-family: Tahoma;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+}
+.vbUL4oxmt tr.popup {
+  background-color: #F0F0F0;
+}
+.vbUL4oxmt tr.popup td {
+  border-color: #8C8C8C;
+}
+.vbUL4oxmt tr.popup a, .vbUL4oxmt tr.popup a{
+  font-family: Tahoma;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+}
+.vbUL4oxmt tr.separator div {
+  height: 1px;
+  background-image: url(sep4oxmt.png);
+}

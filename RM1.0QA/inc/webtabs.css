@@ -1,0 +1,93 @@
+/*
+
+    WebTabs 1.0 Theme Style Sheet
+
+    Theme : WebTabs 1.0 Default Theme
+    Author: Phyrix Systems (Pty) Ltd (http://www.phyrix.com)
+
+*/
+
+/*
+--------------------------------------------------------------------------------
+Properties for the entire page. Normally these are set on the page itself,
+or in your own style sheet file included from the main page.
+--------------------------------------------------------------------------------
+*/
+
+old_body {
+  background: buttonface;
+}
+
+
+body {
+  background: '#CFD7DB';
+}
+
+
+/*
+--------------------------------------------------------------------------------
+Non user-configurable properties. Normally you would leave these alone. They
+are located here for centralization and orderlyness.
+--------------------------------------------------------------------------------
+*/
+
+.WebTabs-tab-container-bdr {
+  position: absolute;
+  overflow: hidden;
+}
+
+.WebTabs-tab-bdr {
+  position: absolute;
+  overflow: hidden;
+}
+
+.WebTabs-tab-cnr {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+.WebTabs-external-page-container {
+  display: none;
+}
+
+/*
+--------------------------------------------------------------------------------
+User-configurable properties. You can change the colours and fonts here to
+whatever you like.
+
+Note: If you want to change the background colour of the widget, you must
+do so several times for different widget elements below (as indicated).
+--------------------------------------------------------------------------------
+*/
+
+.WebTabs-tab {
+  /* This is the font family to use for tab content. */
+  font-family: ms sans serif, tahoma;
+  /* This is the font size to use for tab content. */
+  font-size: 11px;
+}
+
+.WebTabs-touchups {
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  /* This is the background colour to use for the tab widget. */
+  background: '#CFD7DB';
+}
+
+.WebTabs-tab-text-container {
+  /* This is the background colour to use for the tab widget. */
+  background: '#CFD7DB';
+  /* This is the font family to use for tab headings. */
+  font-family: ms sans serif, tahoma;
+  /* This is the font size to use for tab headings. */
+  font-size: 11px;
+}
+
+.WebTabs-internal-page-container {
+  height: 100%;
+  /* This is the background colour to use for the tab widget. */
+  background: '#CFD7DB';
+}
