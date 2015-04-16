@@ -1,6 +1,6 @@
 <%@ Language=VBScript %>
-<!-- #INCLUDE FILE="inc/adovbs.asp" -->
-<!-- #INCLUDE FILE="inc/DanDate.inc"-->
+<!-- #INCLUDE FILE="include/adovbs.asp" -->
+<!-- #INCLUDE FILE="include/DanDate.inc"-->
 <% Response.Expires = -1
    Response.cachecontrol="private" 
    Response.AddHeader "pragma", "no-cache"
@@ -53,63 +53,28 @@
     Dim strProfileCollectionId
     Dim displayRelated
     Dim strSecurityCode
-	
-	intUserId = Session("user_id")
-	
-	Rem Org isn't getting passed in so we can't use it
-	Rem intOrgId = Request("dv")
+	Dim intDivId
 
-
+	intDivId = Request("dv")
     strConn = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=shared;Data Source=thor.rate-monitor.com;"
-
     Set adoCmd = CreateObject("ADODB.Command")
  	adoCmd.ActiveConnection = strConn
-	adoCmd.CommandText = "org_select"
+	adoCmd.CommandText = "division_connection_select"
 	adoCmd.CommandType = 4
-	
-	Rem Not using org - dont need it because we have the user_id!
-	Rem adoCmd.Parameters.Append adoCmd.CreateParameter("@org_id", 3, 1, 0, intOrgId) 
-	
-	adoCmd.Parameters.Append adoCmd.CreateParameter("@user_id", 3, 1, 0, intUserId) 
+	adoCmd.Parameters.Append adoCmd.CreateParameter("@division_id", 3, 1, 0, intDivId) 
     Set adoRS = Server.CreateObject("ADODB.Recordset")
     adoRS.CursorLocation = adUseClient 
    	adoRS.Open adoCmd, , adOpenStatic, adLockReadOnly
-    Session("server_name") = adoRS.Fields("server_name")
-	
-	If (Session("server_name") = "ADVANTAGE") Then
-	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=production;Data Source=rhea.rate-monitor.com;"
-	    Session("dbserver") = "RHEA"
-	ElseIf (Session("server_name") = "ATHENA") Then
-	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=production;Data Source=athena.rate-monitor.com;"
-	    Session("dbserver") = "ATHENA"
-ElseIf (Session("server_name") = "CRONOS") Then
-    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_ehi;Data Source=thor.rate-monitor.com;"
-    Session("dbserver") = "THOR"
-ElseIf (Session("server_name") = "THOREHI") Then
-    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_ehi;Data Source=thor.rate-monitor.com;"
-    Session("dbserver") = "THOR"
-Elseif (Session("server_name") = "HERCULES") Then
-    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_ehi;Data Source=thor.rate-monitor.com;"
-    Session("dbserver") = "THOR"
-ElseIf (Session("server_name") = "HOMECITY") Then
-    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=prod_ehi;Data Source=thor.rate-monitor.com;"
-    Session("dbserver") = "THOR"
-	ElseIf (Session("server_name") = "RHEA") Then
-	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=production;Data Source=rhea.rate-monitor.com;"
-	    Session("dbserver") = "RHEA"
-	Else 'It's Thor
-	    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=production;Data Source=thor.rate-monitor.com;"
-	    Session("dbserver") = "THOR"
-	End if
-
-	If IsNumeric(intUserId) = False Then
-		intUserId = 1
-	ElseIf intUserId < 1 Then
-		intUserId = 1
+    Session("pro_con") = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=" & adoRS.Fields("database_name").Value & ";Data Source=" & adoRS.Fields("server_name").Value & ".rate-monitor.com;"
+    Session("dbserver") = adoRS.Fields("server_name").Value
+    intOrgId = adoRS.Fields("org_id").Value
+    If adoRS.Fields("us_decimal").Value Then
+		intLocale = SetLocale(1033) ' US
+	Else
+		intLocale = SetLocale(1031) ' Germany
 	End If
 
 	strIPAddress = Request.Servervariables("REMOTE_ADDR") 
-
 	intReportRequestId = Request("reportrequestid")
 	strSecurityCode =    Request("security_code")
 	strCarTypeCd =       Request("car_type_cd")
@@ -124,11 +89,8 @@ ElseIf (Session("server_name") = "HOMECITY") Then
         displayRelated = Request("displayrelated")
     end if
 
-	'strConn = Session("pro_con")
-    strConn = "Provider=SQLOLEDB; Network Library=dbmssocn;Password=iLOVEtab@sco!;User ID=rhWeb;Initial Catalog=production;Data Source=thor.rate-monitor.com;"
-    Session("pro_con") = strConn
-
-  	Set adoCmd = CreateObject("ADODB.Command")
+	strConn = Session("pro_con")
+   	Set adoCmd = CreateObject("ADODB.Command")
   	
 	adoCmd.ActiveConnection = strConn
 	adoCmd.CommandText = "currency_select"
@@ -138,29 +100,16 @@ ElseIf (Session("server_name") = "HOMECITY") Then
 
   	Set adoCmd = CreateObject("ADODB.Command")
   	
-	adoCmd.ActiveConnection = strConn
-	adoCmd.CommandText = "user_rate_rpt_select"
-	adoCmd.CommandType = 4
-	
-	adoCmd.Parameters.Append adoCmd.CreateParameter("@user_id", 3, 1, 0, intUserId) 
-
-	Set adoRSettings = adoCmd.Execute
-	
-	If adoRSettings.Fields("us_decimal").Value Then
-		intLocale = SetLocale(1033) ' US
-	Else
-		intLocale = SetLocale(1031) ' Germany
-	End If
 
   	Set adoRS = CreateObject("ADODB.Recordset")
   	Set adoCmd = CreateObject("ADODB.Command")
 	adoRS.CursorLocation = adUseClient
 	adoCmd.ActiveConnection = strConn
-if intOrgId = 148 then
-    adoCmd.CommandText = "car_shopped_rate_select_rpt4_city"
-else
-	adoCmd.CommandText = "car_shopped_rate_select_rpt4"
-end if
+    if intOrgId = 148 then
+        adoCmd.CommandText = "car_shopped_rate_select_rpt4_city"
+    else
+	    adoCmd.CommandText = "car_shopped_rate_select_rpt4"
+    end if
 	adoCmd.CommandType = 4
     adoCmd.CommandTimeout=90
 	
@@ -206,22 +155,11 @@ end if
     adoCmd.Parameters.Append adoCmd.CreateParameter("@currency_cd_override", 200, 1, 3, Null)
 
 	If Session("user_level") = "0" Then
-        adoCmd.Parameters.Append adoCmd.CreateParameter("@security_code", 200, 1, 50, "ares02")
+        adoCmd.Parameters.Append adoCmd.CreateParameter("@security_code", 200, 1, 50, Request.Cookies("password"))
     Else
         adoCmd.Parameters.Append adoCmd.CreateParameter("@security_code", 200, 1, 50, strSecurityCode)
     End If
-
-
-//  Response.Write intReportRequestId & "<br>"
-//   Response.Write strIPAddress & "<br>"
- //  Response.Write strCarTypeCd & "<br>"
-//    Response.Write Session("pro_con") & "<br>"
-//    Response.Write strSecurityCode & "<br>"
-//    Response.Write "Session "  & Session("password") & "<br>"
-//Response.End
-
 	adoRS.Open adoCmd, , adOpenStatic, adLockReadOnly, adCmdStoredProc 
-
 
 	Dim intDateIndex
 	Dim intCarTypeIndex
@@ -456,6 +394,7 @@ end if
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>Rate-Monitor.com | Rate Report by Type</title>
 <link rel="stylesheet" type="text/css" href="inc/rh_report.css">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script language='Javascript' type="text/javascript" >
 
     var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
@@ -482,7 +421,7 @@ end if
             str += ",top=" + yc + ",screenY=" + yc;
         }
         window.open(url, name, str);
-    } 
+    }
 
 </script> 
 <style type="text/css" >
@@ -496,28 +435,58 @@ body         { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt
 </style>
 </head>
 
-<body topmargin="0">
-
+<body leftmargin="0" topmargin="0" onload="MM_preloadImages('images/b_search_pro_on.gif','images/b_search_que_on.gif','images/b_search_cri_on.gif','images/b_rate_on.gif','images/b_alert_on.gif','images/b_user_on.gif','images/b_system_on.gif')">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td background="images/top_middle.jpg">
-    <img src="images/top_left.JPG" width="424" height="91"></td>
-    <td background="images/top_middle.jpg"></td>
-    <td background="images/top_tile.gif"><img src="images/top_right.jpg" width="365" height="91"></td>
+    <td background="images/top_tile.gif">
+    <img alt="" src="images/top.jpg" width="770" height="91"></td>
   </tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td background="images/med_bar_tile.gif"><img src="images/med_bar.gif"></td>
+  <tr>
+    <td background="images/b_tile.gif">
+    <!-- #INCLUDE FILE="include/page_header_buttons.htm" -->
+    </td>
   </tr>
 </table>
-<p align="right"><font class="copyright">Copyright © 2001-<%=Year(Now)%>,
-<a target="_blank" href="http://www.rate-highway.com">Rate-Highway, Inc.</a> (www.rate-highway.com) 
-All Rights Reserved.<br>
-Rate-Monitor is a product of Rate-Highway, Inc. - the creators of the first 
-fully automated rate positioning tool.</font></p>
-
-
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="images/med_bar_tile.gif">
+    <img src="images/med_bar.gif" width="12" height="8" alt=""></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="images/user_tile.gif">
+    <table width="100" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="images/user_left.gif" width="580" height="31" alt=""></td>
+        <td background="images/user_tile.gif">
+        <table width="100" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="bottom">
+            <table width="100" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                <div align="right">
+                  <font face="Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">
+                  User: <%=Request.Cookies("user_name")%></font></div>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="images/separator.gif" width="183" height="6" alt=""></td>
+              </tr>
+            </table>
+            </td>
+            <td><img src="images/user_tile.gif" width="7" height="31" alt=""></td>
+          </tr>
+        </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
 	
 	<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#92393A" width="100%" id="AutoNumber2">
       <tr>
@@ -525,7 +494,6 @@ fully automated rate positioning tool.</font></p>
 		- <%=strReportName %> <%=lorstr%></font></td>
       </tr>
 </table>
-
 
 <table cellSpacing="0" cellPadding="8" width="100%" border="0">
   <tr>
@@ -624,6 +592,13 @@ fully automated rate positioning tool.</font></p>
     &nbsp;</td>
   </tr>
 </table>
+    
+<div id="multilor"></div>
+
+<script>
+//    $('#multilor').load('car_report_by_type.aspx?largeReportOverride=<%=Request("largeReportOverride")%>&city_cd=<%=Request("city_cd")%>&car_type_cd=<%=Request("car_type_cd")%>&vend_override=<%=Request("vend_override")%>&currency_override=<%=Request("currency_override")%>&displayratetype=<%=Request("displayratetype")%>4&display=<%=Request("display")%>&ReportRequestID=<%=Request("ReportRequestID") %>&dv=<%=Request("dv")%>&security_code=<%=Request("security_code")%>&output_style=1');
+    $('#multilor').load('car_report_by_type.aspx?ReportRequestID=<%=Request("ReportRequestID") %>&dv=<%=Request("dv")%>&security_code=<%=Request("security_code")%>&output_style=1');
+</script>
 
 	
 	<%
